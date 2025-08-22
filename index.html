@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cultura do Cancelamento</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Player de música -->
+  <div id="player" onclick="tocarMusica()">🔊</div>
+
+  <!-- Música de fundo -->
+  <audio id="musica-fundo" src="audio/musiquinha.mp3" loop></audio>
+
+  <!-- Contador de visitantes no canto superior -->
+  <div id="contador-visitantes">
+    <span class="icone">&#128100;</span> <!-- emoji bonequinho -->
+    <span id="num-visitantes">0</span>
+  </div>
+
+  <!-- Cabeçalho -->
+  <header>
+    <h1>Cultura do Cancelamento</h1>
+    <p class="slogan">“E se fosse com você?”</p>
+    <nav>
+      <ul>
+        <li><a href="#quiz">Quiz</a></li>
+        <li><a href="#enquete">Enquete</a></li>
+        <li><a href="#mural">Mural</a></li>
+        <li><a href="#reflexao">Reflexão</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Quiz -->
+    <section id="quiz" class="card">
+      <h2>Quiz: Crítica ou Cancelamento?</h2>
+      <div id="quiz-container"></div>
+      <button id="btn-quiz" onclick="iniciarQuiz()">Começar Quiz</button>
+      <p id="resultado-quiz"></p>
+    </section>
+
+    <!-- Enquete -->
+    <section id="enquete" class="card">
+      <h2>Enquete: O que você faria?</h2>
+      <p><strong>Caso:</strong> Um famoso faz uma piada considerada preconceituosa. O que você faria?</p>
+      <div class="botoes">
+        <button onclick="votar('sim')">Cancelar</button>
+        <button onclick="votar('nao')">Dialogar</button>
+      </div>
+      <p id="resultado-enquete"></p>
+    </section>
+
+    <!-- Mural -->
+    <section id="mural" class="card">
+      <h2>Mural Virtual</h2>
+      <p>Escreva sua opinião ou uma palavra que cura:</p>
+      <div class="input-area">
+        <input type="text" id="mensagem" placeholder="Digite aqui...">
+        <button onclick="postarMensagem()">Enviar</button>
+        <button onclick="limparMural()">Limpar Mural</button> <!-- botão adicionado -->
+      </div>
+      <ul id="lista-mensagens"></ul>
+    </section>
+
+    <!-- Reflexão Final -->
+    <section id="reflexao" class="card destaque-final">
+      <h2>Espaço de Reflexão</h2>
+      <p class="frase-final">“Palavras que Ferem, Palavras que Curam”</p>
+      <p class="destaque">E se fosse com você?</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Projeto Escolar – Cultura do Cancelamento</p>
+    <small>Site desenvolvido por Thierry</small>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Função para tocar/pausar a música ao clicar no player
+    function tocarMusica() {
+      const musica = document.getElementById("musica-fundo");
+      if (musica.paused) {
+        musica.volume = 0.5; // volume mais baixo
+        musica.play();
+      } else {
+        musica.pause();
+      }
+    }
+  </script>
+</body>
+</html>
